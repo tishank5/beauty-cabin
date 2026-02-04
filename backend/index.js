@@ -17,8 +17,9 @@ app.use(
       "https://beauty-cabin-git-main-tishank5s-projects.vercel.app",
       "https://beauty-cabin-psi-green-47.vercel.app",
       "https://www.beautycabin.suri",
+      "*",
     ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
