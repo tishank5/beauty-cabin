@@ -6,10 +6,19 @@ const authMiddleware = require("../middleware/auth.middleware");
 const router = express.Router();
 const dbPath = path.join(__dirname, "../db.json");
 
+// Initialize DB file if it doesn't exist
+if (!fs.existsSync(dbPath)) {
+  fs.writeFileSync(dbPath, JSON.stringify({ appointments: [] }, null, 2));
+}
+
 // Helper function to read DB
 const readDB = () => {
-  const data = fs.readFileSync(dbPath, "utf-8");
-  return JSON.parse(data);
+  try {
+    const data = fs.readFileSync(dbPath, "utf-8");
+    return JSON.parse(data);
+  } catch (err) {
+    return { appointments: [] };
+  }
 };
 
 // Helper function to write DB
