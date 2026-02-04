@@ -34,6 +34,10 @@ mongoose
   .catch((err) => console.error("❌ MongoDB Error:", err));
 
 /* 🩺 Health Check */
+app.get("/", (req, res) => {
+  res.json({ ok: true, message: "✅ Backend is live" });
+});
+
 app.get("/db-check", (req, res) => {
   res.json({ ok: true, message: "Backend is live" });
 });
