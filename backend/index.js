@@ -1,9 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 const authRoutes = require("./routes/auth.routes");
-const appointmentRoutes = require("./routes/appointmentFile.routes");
+const appointmentRoutes = require("./routes/appointment.routes");
 
 dotenv.config();
 
@@ -26,9 +27,11 @@ app.use(
 
 app.use(express.json());
 
-/* ✅ File-Based Database (No MongoDB needed!) */
-console.log("✅ Using File-Based Database");
-console.log("📁 Appointments stored in: db.json");
+/* ✅ MongoDB Connection */
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Error:", err));
 
 /* 🩺 Health Check */
 app.get("/db-check", (req, res) => {
