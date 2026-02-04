@@ -14,6 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "https://beauty-cabin-git-main-tishank5s-projects.vercel.app",
       "https://beauty-cabin-psi-green-47.vercel.app",
       "https://www.beautycabin.suri",
     ],
