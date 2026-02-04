@@ -1,0 +1,14 @@
+{
+  "appointments": [
+    {
+      "_id": "1770232857996",
+      "name": "Hi ",
+      "phone": "99",
+      "date": "2026-02-19",
+      "time": "12:51",
+      "service": "Manicure & Pedicure",
+      "status": "Pending",
+      "createdAt": "2026-02-04T19:20:57.996Z"
+    }
+  ]
+}
