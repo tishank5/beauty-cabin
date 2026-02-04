@@ -1,10 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const mongoose = require("mongoose");
 
 const authRoutes = require("./routes/auth.routes");
-const appointmentRoutes = require("./routes/appointment.routes");
+const appointmentRoutes = require("./routes/appointmentFile.routes");
 
 dotenv.config();
 
@@ -15,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://my-project-psi-green-47.vercel.app",
+      "https://beauty-cabin-psi-green-47.vercel.app",
       "https://www.beautycabin.suri",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
@@ -27,11 +26,8 @@ app.use(
 
 app.use(express.json());
 
-/* ✅ MongoDB Connection */
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB Error:", err));
+/* ✅ File-Based Database */
+console.log("✅ Using File-Based Database");
 
 /* 🩺 Health Check */
 app.get("/", (req, res) => {
